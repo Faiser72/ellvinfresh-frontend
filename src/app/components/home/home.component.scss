@@ -31,6 +31,11 @@ div.desc {
   text-align: center;
 }*/
 //till here
+
+.row-center{
+  text-align: center;
+  display: flex;
+align-items: center;}
 .listItems {
     display: flex;
     flex-direction: column;
@@ -455,7 +460,7 @@ div.desc {
       font-weight: bold;
   }
   .boxs{
-    border: 2px solid #f1dea4;
+    // border: 2px solid #f1dea4;
     cursor: pointer;
     margin-bottom: 5px;
     .img_div{
@@ -466,7 +471,13 @@ div.desc {
       background-size: contain;
       position: relative;
       margin: 5px;
+      transform          : scale(1);
+      transition: 250ms;
 
+    }
+    .img_div:hover{
+      transform: scale(1.1);
+      transition: 250ms;
     }
     .subName{
       text-align: center;
@@ -474,6 +485,8 @@ div.desc {
       margin: 0px;
       padding: 10px 0px;
       font-weight: bold;
+      color: #de4828;
+
       
     }
   }
@@ -1102,5 +1115,27 @@ label{
   .row{
     margin-left: -40px;
   }
+  }
+}
+
+
+.small_flex{
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  margin-top: 10px;
+  .btnBtm{
+      // display: flex;
+      // flex-direction: row-reverse;
+      // font-size: 15px;
+      text-align: center;
+      .ripple-parent {
+          position: relative;
+          overflow: hidden;
+          padding: 5px;
+          color: white;
+          background: linear-gradient(135deg, #f48a0f 0%,#e32b13 100%);
+          border-radius: 5px;
+      }
   }
 }

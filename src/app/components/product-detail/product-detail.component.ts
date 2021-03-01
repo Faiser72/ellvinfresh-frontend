@@ -69,6 +69,11 @@ export class ProductDetailComponent implements OnInit {
   size: any;
   variations: any;
   variant: any;
+  cname: any;
+  subName:any;
+  day: string;
+  fromTime: string;
+  toTime: string;
   constructor(
     private metaTagService: Meta,
     private route: ActivatedRoute,
@@ -77,6 +82,7 @@ export class ProductDetailComponent implements OnInit {
     public api: ApiService,
     public util: UtilService,
     public cart: CartService,
+    private location:Location,
     private titleService: Title,){
       console.log("calling detail");
       this.id = localStorage.getItem('sub_cat_id');
@@ -249,6 +255,14 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
+  backToCategory(){
+    this.location.back();
+  }
+
+  routeToHome(){
+    this.router.navigate(['home'])
+  }
+
   openStore() {
     console.log('open store');
 
@@ -324,6 +338,11 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {    
     this.getMeta();
+    this.cname=localStorage.getItem('cname');
+    this.day="Tomorrow";
+    this.fromTime="7:00 AM"
+    this.toTime="11:00 AM"
+
   }
 
   getMeta() { 

@@ -10,8 +10,8 @@
 
  <div class="container">
   <mdb-breadcrumb>
-    <mdb-breadcrumb-item class="blue-text"> <span (click)='routeToHome()'>Home</span> </mdb-breadcrumb-item >
-    <mdb-breadcrumb-item class="active"> {{cname}} </mdb-breadcrumb-item>
+    <mdb-breadcrumb-item class=" home"> <span (click)='routeToHome()'>Home</span> </mdb-breadcrumb-item >
+    <!-- <mdb-breadcrumb-item class="active"> {{cname}} </mdb-breadcrumb-item> -->
     <mdb-breadcrumb-item class="active" *ngIf="subName"> {{subName}} </mdb-breadcrumb-item>
   </mdb-breadcrumb>
 
@@ -53,7 +53,24 @@
 
       <div #content>
         <div style="padding-bottom: 100px;">
-          <div class="flexer">
+          <div class="row w-100 mb-4">
+            <div class="col-lg-3 float-left">
+              <div class="flexer">
+                <select class="selecltItem" [(ngModel)]="filter" (change)="onChange($event.target.value)">
+                  <option value="1">{{util.getString('Popularity')}} </option>
+                  <option value="2">{{util.getString('Price - Low to High')}} </option>
+                  <option value="3">{{util.getString('Price - High to Low')}} </option>
+                  <option value="4">{{util.getString('A - Z')}} </option>
+                  <option value="5">{{util.getString('Z - A')}} </option>
+                  <option value="6">{{util.getString('% Off - High to Low')}} </option>
+                </select>
+              </div>
+              <div class="col-lg-9">
+
+              </div>
+            </div>
+          </div>
+          <!-- <div class="flexer">
             <select class="selecltItem" [(ngModel)]="filter" (change)="onChange($event.target.value)">
               <option value="1">{{util.getString('Popularity')}} </option>
               <option value="2">{{util.getString('Price - Low to High')}} </option>
@@ -62,10 +79,13 @@
               <option value="5">{{util.getString('Z - A')}} </option>
               <option value="6">{{util.getString('% Off - High to Low')}} </option>
             </select>
-          </div>
+          </div> -->
           <div class="row">
-            <div class="col-6 col-md-3 boxs" *ngFor="let product of products;let i = index;">
-              <div class="productimage" [ngStyle]="{'background-image':'url('+api.mediaURL+product.cover+')'}"
+            <!-- <div class="col-6">
+
+            </div> -->
+            <div class="col-6 col-md-4 boxs ml-3" *ngFor="let product of products;let i = index;">
+              <div class="productimage" [ngStyle]="{'background-image':'url('+api.mediaURL+product.cover+')', 'background-position': 'center center', 'background-size': 'cover','height':'height 5rem'}"
                 (click)="singleProduct(product,cname)">
                 <div class="percent" *ngIf="product.discount !== '0'"> {{product.discount}}% </div>
                 <div *ngIf="product.in_stoke === '0'" class="notInStoke">
@@ -83,12 +103,12 @@
                 <div class="selecter" [ngbPopover]="popContent" placement="bottom" triggers="manual" #p1="ngbPopover"
                   (click)="p1.open()">
                   <span>
-                    <span> {{
+                    <span class="netWt"> {{
                                                 product.variations && product.variations[0] && product.variations[0].items[product.variant] &&
                                                 product.variations[0].items[product.variant].title ?
                                                 product.variations[0].items[product.variant].title : ''}} </span>
                     -
-                    <span *ngIf="util.cside ==='left'" class="price_lbl"> {{util.currecny}}
+                    <span *ngIf="util.cside ==='left'" class="price_lbl  mb-3"> {{util.currecny}}
                       <span class="original" *ngIf="product.variations && product.variations[0] && product.variations[0].items[product.variant] &&
                                                 product.variations[0].items[product.variant].discount">
                         {{ product.variations && product.variations[0] && product.variations[0].items[product.variant] &&
@@ -138,12 +158,12 @@
                   <div *ngFor="let option of product.variations[0].items;let ix = index" class="normalItem"
                     (click)="product.variant = ix;">
                     {{option.title}} -
-                    <span class="price_lbl" *ngIf="option.discount === 0 && util.cside ==='left'"> {{util.currecny}}
+                    <span class="price_lbl  mb-3" *ngIf="option.discount === 0 && util.cside ==='left'"> {{util.currecny}}
                       {{option.price}} </span>
-                    <span class="price_lbl" *ngIf="option.discount === 0 && util.cside ==='right'">
+                    <span class="price_lbl  mb-3" *ngIf="option.discount === 0 && util.cside ==='right'">
                       {{option.price}}
                       {{util.currecny}}</span>
-                    <span class="price_lbl" *ngIf="option.discount !== 0">
+                    <span class="price_lbl  mb-3" *ngIf="option.discount !== 0">
                       <span class="original" *ngIf="util.cside ==='left'"> {{util.currecny}} {{option.price}} </span>
                       <span class="sell" *ngIf="util.cside ==='left'">{{util.currecny}} {{option.discount}} </span>
                       <span class="original" *ngIf="util.cside ==='right'"> {{option.price}} {{util.currecny}}</span>
@@ -156,6 +176,8 @@
                                     </div> -->
                 </ng-template>
               </div>
+
+              
               <p class="itemsKind" *ngIf="product.size ==='0'">
                 <span *ngIf="product.have_gram === '1'"> {{product.gram}} {{util.getString('grams')}} </span>
                 <span *ngIf="product.have_kg === '1'"> {{product.kg}} {{util.getString('kg')}} </span>
@@ -164,12 +186,12 @@
                 <span *ngIf="product.have_pcs === '1'"> {{product.pcs}} {{util.getString('pcs')}} </span>
               </p>
               <div *ngIf="product.size ==='0'">
-                <p class="price_lbl" *ngIf="product.discount === '0' && util.cside ==='left'"> {{util.currecny}}
+                <p class="price_lbl mb-3" *ngIf="product.discount === '0' && util.cside ==='left'"> {{util.currecny}}
                   {{product.original_price}} </p>
-                <p class="price_lbl" *ngIf="product.discount === '0' && util.cside ==='right'">
+                <p class="price_lbl  mb-3" *ngIf="product.discount === '0' && util.cside ==='right'">
                   {{product.original_price}}
                   {{util.currecny}}</p>
-                <p class="price_lbl" *ngIf="product.discount !== '0'">
+                <p class="price_lbl  mb-3" *ngIf="product.discount !== '0'">
                   <span class="original" *ngIf="util.cside ==='left'"> {{util.currecny}} {{product.original_price}}
                   </span>
                   <span class="sell" *ngIf="util.cside ==='left'">{{util.currecny}} {{product.sell_price}} </span>
@@ -193,6 +215,13 @@
                   </p>
                   <img src="assets/imgs/add.png" (click)="add(product,i)">
                 </div>
+              </div>
+
+              <hr>
+              <div class="text-center mt-4 time-Slot">
+                <span>
+                  <mdb-icon class="bike-icon" fas icon="biking"></mdb-icon> <span class="text-secondary">  {{day}} {{fromTime}}-{{toTime}}</span>
+                </span>
               </div>
             </div>
           </div>

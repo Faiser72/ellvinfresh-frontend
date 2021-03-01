@@ -125,6 +125,8 @@ export class HomeComponent implements OnInit {
     this.dummyBottomCates = Array(2);
     const city = localStorage.getItem('city');
     console.log('city', localStorage.getItem('city'));
+    // this.getInit();
+
     if (city && city != null && city !== 'null') {
       this.haveCity = true;
       this.getInit();
@@ -382,6 +384,8 @@ export class HomeComponent implements OnInit {
       this.banners = [];
       if (data && data.status === 200 && data.data && data.data.length) {
         data.data.forEach(element => {
+          console.log('elementsssss', element);
+          
           if (element && element.status === '1') {
             if (element.position === '0') {
               this.banners.push(element);

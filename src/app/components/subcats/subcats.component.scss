@@ -14,16 +14,30 @@
 ion-label {
   display: block !important;
 }
+
+.home{
+  color: #de4828;
+}
+.bike-icon{
+  color: #de4828;
+}
+.time-Slot{
+  position: absolute;
+  bottom: 5px;  
+}
 .boxs{
   cursor: pointer;
   position: relative;
   margin-bottom: 16px;
   border: 1px solid lightgray;
+  padding: 15px;
+  // width: 100px;
 }
 .flexer{
   display: flex;
   flex-direction: row-reverse;
-  align-items: center;
+  align-items: left;
+margin-top: 10px;
   .selecltItem{
     border-radius: 5px;
     border: 1px solid lightgray;
@@ -31,6 +45,8 @@ ion-label {
     justify-content: flex-start;
     position: relative;
     margin-bottom: 20px;
+    background-color: black;
+    color: white;
   }
 
 }
@@ -69,7 +85,7 @@ ion-label {
   }
 }
 .productimage {
-  height: 120px;
+  height: 140px;
   width: 100%;
   margin: auto;
   background-position: center;
@@ -77,19 +93,31 @@ ion-label {
   background-size: contain;
   min-width: 100%;
   position: relative;
+  transition: 250ms;
+  transform          : scale(1);
 }
+
+.productimage:hover{
+  transform          : scale(1.1);
+  transition: 250ms;
+
+}
+
 .producttext {
-  font-size: 13px;
+  font-size: 16px;
   display: block;
-  text-align: left;
-  font-weight: bold;
+  text-align: center;
+  font-weight: bolder;
   margin: 0px;
-  margin-top: 5px;
+  margin-top: 10px;
+  color: #de4828;
 }
 .itemsKind{
   font-weight: 400;
-  font-size: 11px;
+  font-size: 14px;
   margin: 0px;
+  text-align: center;
+  margin-top: 10px;
 }
 .variant{
     .selecter{
@@ -166,8 +194,10 @@ ion-label {
 }
 .price_lbl{
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     margin: 0px;
+    // color: blue;
+    text-align: center;
     .original{
         text-decoration: line-through;
     }
@@ -181,6 +211,9 @@ ion-label {
  .btnBtm{
     display: flex;
     cursor: pointer;
+    // display: table-cell;
+    // position: absolute;
+    bottom: 60px; 
     .ripple-parent {
       width: 100%;
       margin-bottom: 5px;
@@ -188,7 +221,8 @@ ion-label {
       overflow: hidden;
       padding: 5px;
       color: white;
-      background: #f27474;
+      // background: #f27474;
+      background-image: linear-gradient(120deg, #ee6910 0%, #e73f13 100%);
       border-radius: 5px;
       text-align: center;
       font-size: 14px;
@@ -201,7 +235,8 @@ ion-label {
     margin-bottom: 5px;
     .abs_add{
         width: 100%;
-        background: #DE4828;
+        // background: #DE4828;
+        background-image: linear-gradient(120deg, #f6d365 0%, #e73f13 100%);
         height: 30px;
         border-radius: 15px;
         display: flex;
@@ -286,6 +321,7 @@ ion-label {
 .itemsKind{
   font-weight: 400;
   font-size: 10px;
+  text-align: center;
 }
 .kind{
   height: 15px;

@@ -102,6 +102,10 @@ export class HeadersComponent implements OnInit {
     // this.addressdata = localStorage.getItem('location'); 
   }
 
+  routeToHome(){
+    this.router.navigate(['home']);
+  }
+
   get(){
     if (navigator.geolocation) {
       console.log('*************************************************');

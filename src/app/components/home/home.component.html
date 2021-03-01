@@ -67,12 +67,26 @@
       (click)="scrollLeft()">
       <mdb-icon fas icon="angle-left"></mdb-icon>
     </a>
+          <!-- custom starts here -->
+      
+          <div class="row w-75 mb-3 mx-auto justify-content-center row-center" *ngIf="util.deviceType !=='mobile'">
+            <div class="col-lg-2" *ngFor="let item of categories" (click)="subCate(item)">
+              <div class="imgs">
+                <img [src]="api.mediaURL + item.cover" class="icon" style="max-width: 2rem;">
+              </div>
+              {{item.name}}
+            </div>
+          </div>
+                <!-- custom ends here -->
     <div class="sliders" #content>
+
+
       <a class="categoryIcon " *ngFor="let item of categories" (click)="subCate(item)">
         <div class="imgs">
           <img [src]="api.mediaURL + item.cover" class="icon">
         </div>
-        <p class="name" *ngIf="util.deviceType !=='mobile'">{{item.name}} </p>
+        <!-- <p class="name" *ngIf="util.deviceType !=='mobile'">{{item.name}} </p> -->
+        
         <p class="name" *ngIf="util.deviceType ==='mobile'">
           <!-- {{item.name}} -->
           {{ (item.name.length>8)? (item.name | slice:0:8)+'..':(item.name) }}
@@ -113,7 +127,7 @@
   <!--Added-->
 
   <div class="container1">
-  <h3 style="font-size: 20px;margin-bottom: 59px;">Explore by Category</h3>
+  <h3 style="font-size: 20px;margin-bottom: 59px; margin-top: 20px; margin-left: 10px;">Explore by Category</h3>
   <div class="row">
                
 			                  
@@ -599,6 +613,20 @@
           <p class="subName">
             {{ (sub.name.length>12)? (sub.name | slice:0:12)+'..':(sub.name) }}
           </p>
+          <p class="text-center">
+            <span  class="text-secondary text-center"> <mdb-icon fas icon="balance-scale"></mdb-icon> Net wt 500grms </span>
+          </p>
+          <p class="price_lbl text-center">
+            <span class="mrptag"> 350 </span>
+            {{util.currecny}}
+            </p>
+            <div class="small_flex">
+            <a class="btnBtm">
+              <div class="ion-activatable ripple-parent text-center" mdbWavesEffect >
+                ADD
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>

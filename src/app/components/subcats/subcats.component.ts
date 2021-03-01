@@ -42,8 +42,10 @@ export class SubcatsComponent implements OnInit {
   dummys = Array(20);
   maxLimit: any;
   loaded: boolean;
-
   filter: any = '1';
+  day: string;
+  fromTime: string;
+  toTime: string;
   constructor(
     private metaTagService: Meta,
     private route: ActivatedRoute,
@@ -176,12 +178,15 @@ export class SubcatsComponent implements OnInit {
       console.log(error);
       this.dummys = [];
       this.dummyProducts = [];
-      this.util.toast('error', this.util.getString('Error'), this.util.getString('wrong input'));
+      // this.util.toast('error', this.util.getString('Error'), this.util.getString('wrong input'));  //temp commented
     });
   }
 
   ngOnInit() {    
     this.getMeta();
+    this.day="Tomorrow";
+    this.fromTime="7:00 AM"
+    this.toTime="11:00 AM"
   }
 
   getMeta() { 
