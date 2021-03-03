@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit {
   @ViewChild('topContent', { read: ElementRef }) public topContent: ElementRef<any>;
   @ViewChild('topStores', { read: ElementRef }) public topStores: ElementRef<any>;
   @ViewChild('topOffers', { read: ElementRef }) public topOffers: ElementRef<any>;
+  @ViewChild('trendingNow', { read: ElementRef }) public trendingNow: ElementRef<any>;
+
   @ViewChild('showPrivacyPop', {static: false}) 
 
   public privacyPopup: TemplateRef<any>;
@@ -81,11 +83,16 @@ export class HomeComponent implements OnInit {
 
   haveStores: boolean;
 
+  haveStoresss: boolean;
+
+
   dummyStores: any[] = [];
   stores: any[] = [];
 
   dummyOffers: any[] = [];
+  dummyOffersTemp: any[] = [];
   offers: any[] = [];
+  bottomcategoryTemp: any[] = [];
 
   bottomcategory: any[] = [];
   dummyBottomCates = Array(2);
@@ -114,7 +121,9 @@ export class HomeComponent implements OnInit {
     this.betweenDummy = Array(30);
     this.dummyTopProducts = Array(30);
     this.dummyOffers = Array(30);
+    this.dummyOffersTemp=Array(30);
     this.offers = [];
+    this.bottomcategoryTemp=[];
     this.categories = [];
     this.banners = [];
     this.bottomBanners = [];
@@ -140,7 +149,9 @@ export class HomeComponent implements OnInit {
       this.betweenDummy = Array(30);
       this.dummyTopProducts = Array(30);
       this.dummyOffers = Array(30);
+      this.dummyOffersTemp=Array(30);
       this.offers = [];
+      this.bottomcategoryTemp=[];
       this.categories = [];
       this.banners = [];
       this.bottomBanners = [];
@@ -209,6 +220,7 @@ export class HomeComponent implements OnInit {
         });
         console.log('store====>>>', this.stores);
         this.haveStores = true;
+        this.haveStoresss=true;
         this.getCategorys();
         this.getBanners();
 
@@ -282,11 +294,13 @@ export class HomeComponent implements OnInit {
         this.api.post('products/inOffers', param).subscribe((data: any) => {
           console.log('inOffersinOffers', data);
           this.dummyOffers = [];
+          this.dummyOffersTemp=[];
           if (data && data.status === 200 && data.data && data.data.length) {
             // this.util.dummyProducts = data.data;
 
             // const topOffers = this.util.dummyProducts.filter(x => x.in_offer === '1');
             this.offers = [];
+            this.bottomcategoryTemp=[];
             data.data.filter(element => {
               if (element.variations && element.size === '1' && element.variations !== '') {
                 if (((x) => { try { JSON.parse(x); return true; } catch (e) { return false } })(element.status)) {
@@ -307,9 +321,13 @@ export class HomeComponent implements OnInit {
                 element['quantiy'] = 0;
               }
               this.offers.push(element);
+              this.bottomcategoryTemp.push(element);
             });
             this.offers = sortBy(this.offers, ['discount'], ['desc']);
             console.log('----------------------------->', this.offers);
+
+            this.bottomcategoryTemp = sortBy(this.bottomcategoryTemp, ['discount'], ['desc']);
+            console.log('------------bottomcategoryTemp----------------->', this.bottomcategoryTemp);
 
           } else {
             this.util.dummyProducts = [];
@@ -318,9 +336,11 @@ export class HomeComponent implements OnInit {
           console.log(error);
           this.util.dummyProducts = [];
           this.dummyOffers = [];
+          this.dummyOffersTemp=[];
         });
       } else {
         this.haveStores = false;
+        this.haveStoresss=false;
         this.stores = [];
         console.log('no city found');
         this.dummyCates = [];
@@ -342,6 +362,7 @@ export class HomeComponent implements OnInit {
       this.stores = [];
      
       this.haveStores = false;
+      this.haveStoresss=false;
       this.dummyCates = [];
       this.dummyBanners = [];
       this.bottomDummy = [];
@@ -544,6 +565,14 @@ export class HomeComponent implements OnInit {
     this.topOffers.nativeElement.scrollLeft -= 450;
   }
 
+  scrollRighttrendingNow() {
+    this.trendingNow.nativeElement.scrollLeft += 450;
+  }
+
+  scrollLefttrendingNow() {
+    this.trendingNow.nativeElement.scrollLeft -= 450;
+  }
+
   scrollRighttopContent() {
     this.topContent.nativeElement.scrollLeft += 450;
   }
@@ -629,6 +658,12 @@ export class HomeComponent implements OnInit {
     this.cart.addItem(item);
   }
 
+  addOffersToCartTemp(item, index) {
+    console.log(item);
+    this.bottomcategoryTemp[index].quantiy = 1;
+    this.cart.addItem(item);
+  }
+
   add(product, index) {
     console.log(product);
     this.topProducts[index].quantiy = this.getQuanity(product.id);
@@ -659,6 +694,15 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  addOffersTemp(product, index) {
+    console.log(product);
+    this.bottomcategoryTemp[index].quantiy = this.getQuanity(product.id);
+    if (this.bottomcategoryTemp[index].quantiy > 0) {
+      this.bottomcategoryTemp[index].quantiy = this.bottomcategoryTemp[index].quantiy + 1;
+      this.cart.addQuantity(this.bottomcategoryTemp[index].quantiy, product.id);
+    }
+  }
+
   removeOffers(product, index) {
     console.log(product, index);
     this.offers[index].quantiy = this.getQuanity(product.id);
@@ -668,6 +712,18 @@ export class HomeComponent implements OnInit {
     } else {
       this.offers[index].quantiy = this.offers[index].quantiy - 1;
       this.cart.addQuantity(this.offers[index].quantiy, product.id);
+    }
+  }
+
+  removeOffersTemp(product, index) {
+    console.log(product, index);
+    this.bottomcategoryTemp[index].quantiy = this.getQuanity(product.id);
+    if (this.bottomcategoryTemp[index].quantiy === 1) {
+      this.bottomcategoryTemp[index].quantiy = 0;
+      this.cart.removeItem(product.id);
+    } else {
+      this.bottomcategoryTemp[index].quantiy = this.bottomcategoryTemp[index].quantiy - 1;
+      this.cart.addQuantity(this.bottomcategoryTemp[index].quantiy, product.id);
     }
   }
 
