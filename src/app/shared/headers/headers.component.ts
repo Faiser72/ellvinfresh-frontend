@@ -65,6 +65,10 @@ export class HeadersComponent implements OnInit {
   addressdata="My Location";
   closeResult: string;
 
+  // userdetails
+  fname: string;
+  lname: string;
+
   constructor(
     private router: Router,
     public util: UtilService,
@@ -83,7 +87,7 @@ export class HeadersComponent implements OnInit {
 
   ngOnInit(){
     this.get();
-  
+    this.getProfile();
     this.api.get('seo/getCoupon').subscribe((data: any) => {
       console.log(data);
       // this.dummy = [];
@@ -124,9 +128,6 @@ export class HeadersComponent implements OnInit {
               geocoder.geocode({  
                   'location': latlng 
               }, (results =>{
-
-              
-            
                     console.log(results);
                     var add= results[0].formatted_address;
                     var  value=add.split(",");
@@ -609,4 +610,22 @@ export class HeadersComponent implements OnInit {
   }
   // end of login changes 
 
+  getProfile() {
+    const param = {
+      id: localStorage.getItem('uid')
+    };
+    this.util.start();
+    this.api.post('users/getById', param).subscribe((data: any) => {
+      this.util.stop();
+      if (data && data.status === 200 && data.data && data.data.length) {
+        const info = data.data[0];
+        this.util.userInfo = info;
+        this.fname = info.first_name;
+        this.lname = info.last_name;
+      }
+    }, error => {
+      console.log(error);
+      this.util.stop();
+    });
+  }
 }

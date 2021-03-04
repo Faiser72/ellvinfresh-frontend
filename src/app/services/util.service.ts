@@ -52,11 +52,18 @@ export class UtilService {
   public razorCode: any;
   public deviceType: any = 'desktop';
 
-  public dummyProducts: any[] = [];
+public dummyProducts: any[] = [];
   public favIds: any[] = [];
   public haveFav: boolean;
 
-  public general: any;
+  public general = {
+    mobile: 789456123,
+    email: "ellvin@gmail.com",
+    address: 'Bangalore, India',
+    city: "Bangalore",
+    zip: 6560036,
+    country: "India"
+  };
 
   public twillo: any;
   public logo: any;
@@ -66,6 +73,7 @@ export class UtilService {
   //   token: '',
   //   from: ''
   // }
+
 
   public countrys = [
     {

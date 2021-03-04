@@ -47,8 +47,12 @@ export class FootersComponent implements OnInit {
     this.router.navigate(['/shop']);
   }
 
-  goToPrivacy() {
+  goToPrivacyPolicy() {
     this.router.navigate(['/privacy-policy']);
+  }
+
+  goToShippingPolicy() {
+    this.router.navigate(['/shipping-policy']);
   }
 
   goToContact() {
@@ -65,6 +69,18 @@ export class FootersComponent implements OnInit {
 
   about() {
     this.router.navigate(['/about']);
+  }
+
+  goToBlog(){
+  }
+
+  goToCareers() {
+  }
+
+  goToFaq() {
+  }
+
+  goToTermsNConditions() {
   }
 
 }

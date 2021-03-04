@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
 /*
    Authors : pvgroups
   Website : https://pvgroups.com/
@@ -7,6 +9,14 @@
   terms found in the Website https://pvgroups.com/license
   Copyright and Good Faith Purchasers © 2020-present pvgroups.
 */
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.fas {
+    font-family: "Font Awesome 5 Free";
+}
 
 //added
 
@@ -40,14 +50,33 @@ div.desc {
 }
 
 .cat-img:hover {
-    transform: scale(0.9);
-    transition: 250ms;
+    transform: scale(0.98);
+    transition: 150ms;
 }
 
 .row-center {
     text-align: center;
     display: flex;
     align-items: center;
+}
+
+.cat-text {
+    margin-top: 5px;
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    text-align: center;
+    color: #3e4d60;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.section-label {
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    color: #3e4d60;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
 }
 
 .listItems {
@@ -216,10 +245,11 @@ div.desc {
                 margin: 0px;
                 .pro_name {
                     font-size: 18px;
-                    color: gray;
+                    color: #e53513;
                     margin: 0px;
-                    font-weight: bold;
+                    font-weight: 500;
                     text-align: center;
+                    text-transform: capitalize;
                 }
                 .itemsKind {
                     font-weight: 400;
@@ -255,8 +285,10 @@ div.desc {
                     color: linear-gradient(135deg, #f48a0f 0%, #e32b13 100%);
                 }
                 .price_lbl {
+                    margin-top: 5px;
                     font-weight: 400;
-                    font-size: 11px;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 14px;
                     margin: 0px;
                     font-weight: bold;
                     text-align: center;
@@ -391,18 +423,26 @@ div.desc {
                         margin-bottom: 5px;
                     }
                     .price_lbl {
+                        margin-top: 5px;
                         font-weight: 400;
-                        font-size: 11px;
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 14px;
+                        margin: 0px;
+                        font-weight: bold;
+                        text-align: center;
                         .original {
                             text-decoration: line-through;
                             font-size: 11px;
+                            margin: 0px;
                         }
                         .sell {
                             font-weight: bold;
+                            margin: 0px;
                         }
                         .dicount {
                             font-weight: bold;
                             font-size: 11px;
+                            margin: 0px;
                         }
                     }
                     .small_flex {
@@ -454,14 +494,12 @@ div.desc {
 
 .btmCates {
     .cateName {
-        text-align: left;
-        color: black;
-        //font-weight: 400;
-        font-size: 20px;
-        // border-bottom: 1px solid lightgray;
-        padding-bottom: 10px;
-        margin: -350px 0px 0px 0px;
-        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+        display: block;
+        color: #3e4d60;
+        font-size: 18px;
+        font-weight: 500;
+        margin: 10px 0px 0px -76px;
     }
     .boxs {
         // border: 2px solid #f1dea4;
@@ -484,18 +522,19 @@ div.desc {
         }
         .subName {
             text-align: center;
-            font-size: 18px;
+            font-size: 16px;
             margin: 0px;
             padding: 10px 0px;
             font-weight: bold;
             color: #de4828;
+            text-transform: capitalize;
         }
     }
 }
 
 .banners {
-    margin: 0px 2000px 100px -100px;
-    width: 120%;
+    margin: 0px 2000px 100px 0px;
+    width: 100%;
 }
 
 .banners {
@@ -568,7 +607,7 @@ label {
         // justify-content: center;
         .icn_div {
             height: 55px;
-            width: 55px;
+            width: 80px;
             border-radius: 5px;
             border: 1px solid lightgray;
             position: relative;
@@ -611,9 +650,34 @@ label {
     // border-bottom: 1px solid lightgray;
     margin: -81px -182px -7px 2px;
     .head_lbl {
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 500;
         margin: 0px 0px 0px -76px;
+        font-family: 'Poppins', sans-serif;
+    }
+    .View_lbl {
+        background: #DE4828;
+        border-radius: 3px;
+        padding: 5px 25px;
+        color: white;
+        font-size: 13px;
+        margin: -24px 92px -6px 51px;
+    }
+}
+
+.trending_div {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // border-bottom: 1px solid lightgray;
+    margin: -30px -182px -7px 2px;
+    .head_lbl {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0px 0px 0px -76px;
+        font-family: 'Poppins', sans-serif;
     }
     .View_lbl {
         background: #DE4828;
@@ -632,10 +696,11 @@ label {
     align-items: center;
     justify-content: center;
     .head_lbl {
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 500;
         padding-bottom: 5px;
         border-bottom: 2px solid;
+        font-family: 'Poppins', sans-serif;
     }
 }
 
@@ -677,10 +742,23 @@ label {
     }
 }
 
+.promo-banner {
+    margin: 20px 0px;
+    display: inline-block;
+}
+
 .overlay {
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
+}
+
+.add-label {
+    font-size: 14px;
+}
+
+.fa-shopping-cart {
+    font-size: 12px;
 }
 
 .back_div {
@@ -706,6 +784,7 @@ label {
     margin: -70px 2000px 100px -100px;
     width: 120%;
     background-color: #f0f8ff;
+    padding-bottom: 20px;
 }
 
 .back_div2 {
@@ -743,13 +822,12 @@ label {
 
 .catess {
     .cateName {
-        text-align: center;
-        font-weight: bold;
-        font-size: 13px;
-        // background: #d0e3e3;
-        padding: 5px;
-        margin: 0px;
-        margin-top: 10px;
+        font-family: 'Poppins', sans-serif;
+        display: block;
+        color: #3e4d60;
+        font-size: 18px;
+        font-weight: 500;
+        margin: -350px 0px 15px -76px;
     }
     .bgColor {
         background: ivory;
@@ -838,11 +916,12 @@ label {
     }
     .btmCates {
         .cateName {
-            text-align: center;
-            color: black;
-            font-weight: 400;
-            border-bottom: 1px solid lightgray;
-            padding-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            display: block;
+            color: #3e4d60;
+            font-size: 18px;
+            font-weight: 500;
+            margin: 10px 0px 15px 0px;
         }
         .boxs {
             border: 2px solid #f1dea4;
@@ -936,7 +1015,6 @@ label {
     .btmCates {
         .cateName {
             text-align: center;
-            color: black;
             font-weight: 400;
             border-bottom: 1px solid lightgray;
             padding-bottom: 10px;
@@ -1033,7 +1111,6 @@ label {
     .btmCates {
         .cateName {
             text-align: center;
-            color: black;
             font-weight: 400;
             border-bottom: 1px solid lightgray;
             padding-bottom: 10px;
@@ -1076,8 +1153,8 @@ label {
         margin: 50px 0px 0px 58px;
     }
     .banners {
-        margin: 3px 2274px 90px -27px;
-        width: 115%;
+        margin: 3px 2274px 90px 0px;
+        width: 100%;
     }
     .container1 {
         margin: -86px 1849px 61px -60px;
@@ -1093,13 +1170,10 @@ label {
         margin-left: 103px;
         height: 268px;
         width: 337px;
-        transform: scale(1);
+        // transform: scale(1);
         .row {
             margin-left: -40px;
         }
-    }
-    .img-fluid {
-        transform: scale(1.1);
     }
 }
 
