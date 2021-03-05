@@ -87,6 +87,9 @@ export class ProductDetailComponent implements OnInit {
       console.log("calling detail");
       this.id = localStorage.getItem('sub_cat_id');
       this.route.queryParams.subscribe(data => {
+        console.log(data,'line No 90');
+        
+          this.id = data.id;
         if (this.id) {
           this.getProduct();
         } else {
@@ -97,8 +100,7 @@ export class ProductDetailComponent implements OnInit {
 
   getProduct() {
     const param = {
-      id: this.id
-      
+      id: this.id      
     };console.log("iddd=",this.id)
     this.create = this.id;
     this.loaded = false;
@@ -342,7 +344,6 @@ export class ProductDetailComponent implements OnInit {
     this.day="Tomorrow";
     this.fromTime="7:00 AM"
     this.toTime="11:00 AM"
-
   }
 
   getMeta() { 

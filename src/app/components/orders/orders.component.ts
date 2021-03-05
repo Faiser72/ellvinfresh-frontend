@@ -358,4 +358,8 @@ export class OrdersComponent implements OnInit {
     this.router.navigate(['/tracker']);
   }
 
+  goSupport() {
+    this.router.navigate(['support']);
+  }
+
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
 /*
    Authors : pvgroups
   Website : https://pvgroups.com/
@@ -7,6 +9,10 @@
   terms found in the Website https://pvgroups.com/license
   Copyright and Good Faith Purchasers © 2020-present pvgroups.
 */
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
 
 .sidemenu {
     .my_col {

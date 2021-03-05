@@ -154,6 +154,12 @@ const routes: Routes = [
         data: { title: 'Success' }
       },
       {
+        path: 'support',
+        loadChildren: () => import('./components/support/support/support.module').then(m => m.SupportModule),
+        canActivate: [AuthGuard],
+        data: { title: 'Support' }
+      },
+      {
         path: 'chats',
         loadChildren: () => import('./components/chats/chats.module').then(m => m.ChatsModule),
         canActivate: [AuthGuard],

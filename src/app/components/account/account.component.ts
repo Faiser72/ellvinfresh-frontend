@@ -420,4 +420,8 @@ export class AccountComponent implements OnInit {
       console.log('no');
     }
   }
+
+  goSupport() {
+    this.router.navigate(['support'])
+  }
 }

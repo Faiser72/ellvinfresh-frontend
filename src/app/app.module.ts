@@ -33,6 +33,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { MobileHeaderComponent } from './shared/mobile-header/mobile-header.component';
 import { AgmCoreModule,GoogleMapsAPIWrapper } from '@agm/core';
+import { SearchPipe } from './search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { AgmCoreModule,GoogleMapsAPIWrapper } from '@agm/core';
     HeadersComponent,
     FootersComponent,
     MobileHeaderComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

@@ -69,6 +69,9 @@ export class HeadersComponent implements OnInit {
   fname: string;
   lname: string;
 
+  public searchs:any = '';
+  locked: any[] = [];
+
   constructor(
     private router: Router,
     public util: UtilService,
@@ -395,6 +398,8 @@ export class HeadersComponent implements OnInit {
   }
 
   openProduct(item) {
+    console.log(item);
+    
     const param: NavigationExtras = {
       queryParams: {
         id: item.id
@@ -417,7 +422,11 @@ export class HeadersComponent implements OnInit {
         console.log('search data==>', data);
         //this.util.stop();
         if (data && data.status === 200 && data.data) {
+
           this.products = data.data;
+          this.locked=data.data;
+          console.log(this.locked,'lockeddddddddd');
+          
         }
       }, error => {
         console.log('error in searhc filess--->>', error);
@@ -429,6 +438,13 @@ export class HeadersComponent implements OnInit {
 
   goChat() {
     this.router.navigate(['chats']);
+  }
+
+  openModal(a,b){
+console.log(a,'aaaaaaaaa');
+console.log(b,'bbbbb');
+
+
   }
 
   // login changes 
