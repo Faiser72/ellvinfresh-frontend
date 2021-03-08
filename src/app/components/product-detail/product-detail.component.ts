@@ -84,18 +84,17 @@ export class ProductDetailComponent implements OnInit {
     public cart: CartService,
     private location:Location,
     private titleService: Title,){
-      console.log("calling detail");
       this.id = localStorage.getItem('sub_cat_id');
       this.route.queryParams.subscribe(data => {
-        console.log(data,'line No 90');
-        
+        if(data.id) {
           this.id = data.id;
-        if (this.id) {
-          this.getProduct();
-        } else {
-          this.navCtrl.back();
         }
       });
+      if (this.id) {
+        this.getProduct();
+      } else {
+        this.navCtrl.back();
+      }
     }
 
   getProduct() {

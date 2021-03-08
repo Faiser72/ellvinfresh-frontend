@@ -398,16 +398,9 @@ export class HeadersComponent implements OnInit {
   }
 
   openProduct(item) {
-    console.log(item);
-    
-    const param: NavigationExtras = {
-      queryParams: {
-        id: item.id
-      }
-    };
     this.products = [];
     this.terms = '';
-    this.router.navigate(['product-detail'], param);
+    this.router.navigate(["product-detail"], { queryParams: {id : item.id}});
   }
 
   search(event) {

@@ -57,13 +57,11 @@ export class SubcatsComponent implements OnInit {
     private titleService: Title
   ) {
     this.route.queryParams.subscribe((data) => {
-      console.log('prama*******************************************************************', data);
       let cid = localStorage.getItem('cid');
       let cname = localStorage.getItem('cname');
-      this.onMenuClick(cid,cname);
+      this.onMenuClick(cid, cname);
       this.getCategories();
 
-      console.log(cname);
       if (cid && cname) {
         this.dummyCates = Array(10);
         this.dummyProducts = Array(16);
