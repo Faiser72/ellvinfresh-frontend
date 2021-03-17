@@ -9,8 +9,8 @@
  -->
 
 <div class="container">
-    <mdb-breadcrumb>
-        <mdb-breadcrumb-item class=" home"> <span (click)='routeToHome()'>Home</span> </mdb-breadcrumb-item>
+    <mdb-breadcrumb class="breadcrumb__backgroud">
+        <mdb-breadcrumb-item class="home"> <span (click)='routeToHome()'>Home</span> </mdb-breadcrumb-item>
         <!-- <mdb-breadcrumb-item class="active"> {{cname}} </mdb-breadcrumb-item> -->
         <mdb-breadcrumb-item class="active" *ngIf="subName"> {{subName}} </mdb-breadcrumb-item>
     </mdb-breadcrumb>
@@ -52,10 +52,10 @@
         <div class="col-12">
 
             <div #content>
-                <div style="padding-bottom: 100px;">
+                <div class="mx-auto" style="padding-bottom: 100px;" >
                     <div class="row w-100 mb-4">
                         <div class="col-lg-3 offset-md-9 float-right">
-                            <div class="flexer">
+                            <div class="flexer" hidden>
                                 <select class="selecltItem" [(ngModel)]="filter" (change)="onChange($event.target.value)">
                                   <option value="1">{{util.getString('Popularity')}} </option>
                                   <option value="2">{{util.getString('Price - Low to High')}} </option>
@@ -80,12 +80,12 @@
               <option value="6">{{util.getString('% Off - High to Low')}} </option>
             </select>
           </div> -->
-                    <div class="row">
+                    <div class="row w-100 d-flex justify-content-around">
                         <!-- <div class="col-6">
 
             </div> -->
-                        <div class="col-4 col-md-3 boxs ml-3" *ngFor="let product of products;let i = index;">
-                            <div class="productimage" [ngStyle]="{'background-image':'url('+api.mediaURL+product.cover+')', 'background-position': 'center center', 'background-size': 'cover','height':'height 5rem'}" (click)="singleProduct(product,cname)">
+                        <div class="col-4 col-md-3 boxs shadow ml-2" *ngFor="let product of products;let i = index;">
+                            <div class="productimage" [ngStyle]="{'background-image':'url('+api.mediaURL+product.cover+')', 'background-position': 'center center', 'background-size': 'cover','height':'height 8rem'}" (click)="singleProduct(product,cname)">
                                 <div class="percent" *ngIf="product.discount !== '0'"> {{product.discount}}% </div>
                                 <div *ngIf="product.in_stoke === '0'" class="notInStoke">
                                     <p class="text">{{util.getString('Out of Stoke')}} </p>

@@ -94,6 +94,7 @@ export class CheckoutComponent implements OnInit {
   };
 
   offers: any[] = [];
+  deliveryTime: any;
   constructor(
     public api: ApiService,
     public cart: CartService,
@@ -622,9 +623,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   async createOrder(payMethod, payKey) {
-    //////////// new
-    //////////// new
-
     const storeId = [...new Set(this.cart.cart.map(item => item.store_id))];
     const orderStatus = [];
     storeId.forEach(element => {
@@ -644,7 +642,8 @@ export class CheckoutComponent implements OnInit {
     const param = {
       uid: localStorage.getItem('uid'),
       store_id: storeId.join(),
-      date_time: this.cart.datetime === 'today' ? moment().format('YYYY-MM-DD HH:mm:ss') : moment().add(1, 'days').format('YYYY-MM-DD HH:mm:ss'),
+      // date_time: this.cart.datetime === 'today' ? moment().format('YYYY-MM-DD HH:mm:ss') + " "+ this.time : moment().add(1, 'days').format('YYYY-MM-DD HH:mm:ss')+" "+ this.time,
+      date_time: this.deliveryTime,
       paid_method: payMethod,
       order_to: this.cart.deliveryAt,
       orders: JSON.stringify(this.cart.cart),
@@ -661,7 +660,6 @@ export class CheckoutComponent implements OnInit {
       status: JSON.stringify(orderStatus),
       assignee: ''
     }
-
     console.log('param----->', param);
 
     this.util.start();
@@ -724,12 +722,17 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSelect(data) {
-    if (data === 'today') {
-      this.datetime = 'today';
-      this.time = this.util.getString('Today - ') + moment().format('dddd, MMMM Do YYYY');
-    } else {
-      this.datetime = 'tomorrow';
-      this.time = this.util.getString('Tomorrow - ') + moment().add(1, 'days').format('dddd, MMMM Do YYYY');
+    "use strict";
+    // if (data === 'today') {
+    //   this.datetime = 'today';
+    //   this.time = this.util.getString('Today - ') + moment().format('dddd, MMMM Do YYYY');
+    // } else {
+    //   this.datetime = 'tomorrow';
+    //   this.time = this.util.getString('Tomorrow - ') + moment().add(1, 'days').format('dddd, MMMM Do YYYY');
+    // }
+    if (data !== null) {
+      this.time = this.util.getString('Today - ') + moment().format('dddd, MMMM Do YYYY') +" "+ data;
+      this.deliveryTime = data
     }
   }
 

@@ -205,7 +205,7 @@ export class HomeComponent implements OnInit {
     this.betweenBanners = [];
     this.topProducts = [];
     this.products = [];
-    const param = {
+    const param = { 
       id: localStorage.getItem('city')
     };
     this.api.post('stores/getByCity', param).subscribe((stores: any) => {

@@ -1,3 +1,5 @@
+@import '../../../assets/colors.scss';
+
 /*
    Authors : pvgroups
   Website : https://pvgroups.com/
@@ -15,11 +17,15 @@ ion-label {
   display: block !important;
 }
 
+ol   {
+  color: white !important;
+}
+
 .home{
-  color: #de4828;
+  color: $color-shade-of-orange;
 }
 .bike-icon{
-  color: #de4828;
+  color: $color-shade-of-orange;
 }
 .time-Slot{
   position: absolute;
@@ -28,16 +34,17 @@ ion-label {
 .boxs{
   cursor: pointer;
   position: relative;
-  margin-bottom: 16px;
+  min-width: 20rem !important;
+  margin-bottom: 26px;
   border: 1px solid lightgray;
   padding: 15px;
-  // width: 100px;
+  border-radius: 5px;
 }
 .flexer{
   display: flex;
   flex-direction: row-reverse;
-  align-items: left;
-margin-top: 10px;
+  align-items: center;
+  margin-top: 10px;
   .selecltItem{
     border-radius: 5px;
     border: 1px solid lightgray;
@@ -85,7 +92,7 @@ margin-top: 10px;
   }
 }
 .productimage {
-  height: 140px;
+  height: 280px;
   width: 100%;
   margin: auto;
   background-position: center;
@@ -94,11 +101,11 @@ margin-top: 10px;
   min-width: 100%;
   position: relative;
   transition: 250ms;
-  transform          : scale(1);
+  transform: scale(1.1);
 }
 
 .productimage:hover{
-  transform          : scale(1.1);
+  transform: scale(1.05);
   transition: 250ms;
 
 }
@@ -107,10 +114,12 @@ margin-top: 10px;
   font-size: 16px;
   display: block;
   text-align: center;
-  font-weight: bolder;
+  font-weight: bold;
   margin: 0px;
-  margin-top: 10px;
-  color: #de4828;
+  margin-top: 15px;
+  text-transform: capitalize;
+  color: $color-shade-of-orange;
+  color: $color-greened-black;
 }
 .itemsKind{
   font-weight: 400;
@@ -222,7 +231,8 @@ margin-top: 10px;
       padding: 5px;
       color: white;
       // background: #f27474;
-      background-image: linear-gradient(120deg, #ee6910 0%, #e73f13 100%);
+      // background-image: linear-gradient(120deg, #ee6910 0%, #e73f13 100%);
+      background-color: $color-greened-black;
       border-radius: 5px;
       text-align: center;
       font-size: 14px;
@@ -236,7 +246,8 @@ margin-top: 10px;
     .abs_add{
         width: 100%;
         // background: #DE4828;
-        background-image: linear-gradient(120deg, #f6d365 0%, #e73f13 100%);
+        // background-image: linear-gradient(120deg, #f6d365 0%, #e73f13 100%);
+        background-color: $color-greened-black;
         height: 30px;
         border-radius: 15px;
         display: flex;
@@ -317,6 +328,8 @@ margin-top: 10px;
   text-align: left;
   font-weight: bold;
   margin-top: 5px;
+  text-transform: capitalize;
+  color: $color-greened-black;
 }
 .itemsKind{
   font-weight: 400;

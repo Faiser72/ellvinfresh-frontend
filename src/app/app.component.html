@@ -17,15 +17,14 @@
     <ngx-ui-loader fgsType="ball-scale-multiple" fgsColor="#f3f3f3"></ngx-ui-loader>
     <app-headers *ngIf="util.deviceType !=='mobile'"></app-headers>
     <app-mobile-header *ngIf="util.deviceType ==='mobile'"></app-mobile-header>
-    <div style="padding: 25px 0px;margin-bottom: 50px;margin-top: -100px;
-  ">
+    <div style="padding: 25px 0px;margin-bottom: 50px;margin-top: -100px;">
         <div mdbModal #cartModel="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true" style="z-index: 9999;">
             <div class="modal-dialog modal-full-height modal-right" role="document">
                 <div class="modal-content">
                     <div class="modal-header cartHeader">
                         <button type="button" mdbWavesEffect color="light" class="close pull-right" aria-label="Close" (click)="cartModel.hide()">
-              <span aria-hidden="true" style="color: white;">×</span>
-            </button>
+                        <span class="text-light" aria-hidden="true">×</span>
+                        </button>
                         <p class="modal-title w-100" id="myModalLabel">{{util.getString('My Cart')}} <span style="font-size: 10px;" *ngIf="cart.cart?.length"> ( {{cart.cart?.length}} {{util.getString('items')}} ) </span> </p>
                     </div>
                     <div class="modal-body">
@@ -212,7 +211,7 @@
         </div>
         <router-outlet></router-outlet>
         <div class="container">
-            <a mdbBtn *ngIf="isShow" floating="true" class="topNavBtn" (click)="gotoTop()" size="lg" color="red" mdbWavesEffect>
+            <a mdbBtn *ngIf="isShow" floating="true" class="topNavBtn" (click)="gotoTop()" size="lg" mdbWavesEffect>
                 <mdb-icon fas icon="angle-up" style="color: white;"></mdb-icon>
             </a>
         </div>

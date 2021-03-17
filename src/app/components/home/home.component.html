@@ -53,9 +53,7 @@
 </ng-template>
 
 <!-- Cookies and Top Alert -->
-
-<div class="container">
-
+<div class="container-fluid">
 
     <div class="topCates">
         <a mdbBtn class="arrowBtnsL" floating="true" color="light" *ngIf="categories?.length " mdbWavesEffect (click)="scrollLeft()">
@@ -83,7 +81,7 @@
 
                 <p class="name" *ngIf="util.deviceType ==='mobile'">
                     <!-- {{item.name}} -->
-                    {{ (item.name.length>8)? (item.name | slice:0:8)+'..':(item.name) }}
+                    {{ (item.name.length>8)? (item.name | slice:0:8)+'..':(item.name) }} Some
                 </p>
             </a>
             <div *ngFor="let item of  dummyCates; ">
@@ -111,43 +109,44 @@
             </ngx-skeleton-loader>
         </div>
     </div>
+</div>
 
     <!--Added-->
-
+    <div class="container">
     <div class="container-fluid container1">
         <h3 class="section-label pt-3">Explore by Category</h3>
-        <div class="row">
+        <div class="row mx-2">
             <div class="col-md-3">
                 <a (click)="subCate({'id':21,'name':'Chicken'})">
-                    <img class="img-fluid cat-img" src="assets/imgs/Chicken.jpg" alt="" style=" border-radius: 20px;">
+                    <img class="img-fluid cat-img" src="assets/imgs/Chicken.jpg" alt="" style=" border-radius: 10px;">
                     <h6 class="cat-text"> Chicken </h6>
                 </a>
             </div>
 
             <div class="col-md-3">
                 <a (click)="subCate({'id':24,'name':'Mutton'})">
-                    <img class="img-fluid cat-img" src="assets/imgs/Mutton.jpg" alt="" style=" border-radius: 20px;">
+                    <img class="img-fluid cat-img" src="assets/imgs/Mutton.jpg" alt="" style=" border-radius: 10px;">
                     <h6 class="cat-text"> Mutton </h6>
                 </a>
             </div>
 
             <div class="col-md-3">
                 <a (click)="subCate({'id':22,'name':'Fish'})">
-                    <img class="img-fluid cat-img" src="assets/imgs/Fish.jpg" alt="" style=" border-radius: 20px;">
+                    <img class="img-fluid cat-img" src="assets/imgs/Fish.jpg" alt="" style=" border-radius: 10px;">
                     <h6 class="cat-text"> Fish </h6>
                 </a>
             </div>
 
             <div class="col-md-3">
                 <a (click)="subCate({'id':23,'name':'Eggs'})">
-                    <img class="img-fluid cat-img" src="assets/imgs/Eggs.jpg" alt="" style=" border-radius: 20px;">
+                    <img class="img-fluid cat-img" src="assets/imgs/Eggs.jpg" alt="" style=" border-radius: 10px;">
                     <h6 class="cat-text"> Eggs </h6>
                 </a>
             </div>
 
             <div class="col-md-3">
                 <a (click)="subCate({'id':25,'name':'Prawns'})">
-                    <img class="img-fluid cat-img" src="assets/imgs/Prawns_Mania.jpg" alt="" style=" border-radius: 20px;">
+                    <img class="img-fluid cat-img" src="assets/imgs/Prawns_Mania.jpg" alt="" style=" border-radius: 10px;">
                     <h6 class="cat-text"> Prawns Mania </h6>
                 </a>
             </div>

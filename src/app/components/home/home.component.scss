@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import '../../../assets/colors.scss';
 
 /*
    Authors : pvgroups
@@ -47,6 +48,11 @@ div.desc {
 .cat-img {
     transform: scale(1);
     transition: 250ms;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.container-fluid {
+    overflow: hidden;
 }
 
 .cat-img:hover {
@@ -65,7 +71,7 @@ div.desc {
     font-family: 'Poppins', sans-serif;
     display: block;
     text-align: center;
-    color: #3e4d60;
+    color: $color-pastel-pink;
     font-size: 16px;
     font-weight: 500;
 }
@@ -73,7 +79,7 @@ div.desc {
 .section-label {
     font-family: 'Poppins', sans-serif;
     display: block;
-    color: #3e4d60;
+    color: $color-pastel-pink;
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 15px;
@@ -783,7 +789,7 @@ label {
     //margin: -93px 1999px 61px -59px;
     margin: -70px 2000px 100px -100px;
     width: 120%;
-    background-color: #f0f8ff;
+    background-color: $color-greened-black;
     padding-bottom: 20px;
 }
 

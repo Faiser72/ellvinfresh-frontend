@@ -68,7 +68,7 @@ export class OrderDetailComponent implements OnInit {
       this.loaded = true;
       if (data && data.status === 200 && data.data.length > 0) {
         const info = data.data[0];
-        console.log(info);
+        console.log("Order Details --->>>>>",info);
         this.orderDetail = JSON.parse(info.notes);
         const order = JSON.parse(info.orders);
         console.log('order=====>>', order);

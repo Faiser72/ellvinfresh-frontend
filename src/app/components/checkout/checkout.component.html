@@ -206,7 +206,25 @@
                         </div>
                         <p class="title"> {{util.getString('Receive at')}} </p>
                         <ng-template #popContent2 let-greeting="greeting">
-                            <button type="button" class="btn btn-clear mr-2 bolder" (click)="onSelect('today')" mdbWavesEffect mdbBtn triggers="manual">
+                            <button type="button" class="btn btn-clear mr-2 bolder" (click)="onSelect('7.30 AM - 9.30 AM')" mdbWavesEffect mdbBtn triggers="manual">
+                                7:30 AM - 9:30 AM
+                            </button>
+                            <button type="button" class="btn btn-clear mr-2 bolder" (click)="onSelect('9.30 AM - 11.30 AM')" mdbWavesEffect mdbBtn triggers="manual">
+                                9:30 AM - 11:30 AM
+                            </button>
+                            <button type="button" class="btn btn-clear mr-2 bolder" (click)="onSelect('11.30 AM - 1.30 PM')" mdbWavesEffect mdbBtn triggers="manual">
+                                11:30 AM - 1:30 PM
+                            </button>
+                            <button type="button" class="btn btn-clear mr-2 bolder" (click)="onSelect('2 PM - 4 PM')" mdbWavesEffect mdbBtn triggers="manual">
+                               2:00 PM - 4:00 PM
+                            </button>
+                            <button type="button" class="btn btn-clear mr-2 bolder" (click)="onSelect('4 PM - 6 PM')" mdbWavesEffect mdbBtn triggers="manual">
+                                4:00 PM - 6:00 PM
+                            </button>
+                            <button type="button" class="btn btn-clear mr-2 bolder" (click)="onSelect('6 PM - 8 PM')" mdbWavesEffect mdbBtn triggers="manual">
+                                6:00 PM - 8:00 PM
+                            </button>
+                            <!-- <button type="button" class="btn btn-clear mr-2 bolder" (click)="onSelect('today')" mdbWavesEffect mdbBtn triggers="manual">
               {{util.getString('Today')}} {{today}}
 
             </button>
@@ -214,7 +232,7 @@
                             <button type="button" class="btn btn-clear mr-2 bolder" (click)="onSelect('next')" mdbWavesEffect mdbBtn triggers="manual">
               {{util.getString('Tomorrow')}} {{nextDay}}
 
-            </button>
+            </button> -->
                         </ng-template>
                     </div>
                     <!---start--->

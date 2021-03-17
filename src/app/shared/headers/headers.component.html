@@ -22,9 +22,27 @@
 {{addressdata}}				  </a>
                     <!-- Vijayawada, Andhra Pradesh -->
                 </div>
-                <div [ngbPopover]="popContent3" triggers="manual" style="background: #171b20; color: white; cursor: pointer; padding-left: 100px;" #p3="ngbPopover" (click)="p3.open()">
-                    {{getLangName()}}
-                    <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                <div class="col-md-4 col-lg-4 text-md-right social_div">
+                    <!-- Facebook -->
+                    <a class="fbs-ic">
+                        <mdb-icon fab icon="facebook" class="fb-ic mr-2"></mdb-icon>
+                    </a>
+                    <!-- Twitter -->
+                    <a class="tws-ic">
+                        <mdb-icon fab icon="twitter" class="tw-ic mr-2"></mdb-icon>
+                    </a>
+                    <!-- Google +-->
+                    <a class="gpluss-ic">
+                        <mdb-icon fab fab icon="google-plus" class="gplus-ic mr-2"></mdb-icon>
+                    </a>
+                    <!--Linkedin -->
+                    <a class="lis-ic">
+                        <mdb-icon fab icon="linkedin" class="li-ic mr-2"></mdb-icon>
+                    </a>
+                    <!--Instagram-->
+                    <a class="inss-ic">
+                        <mdb-icon fab icon="instagram" class="ins-ic mr-2"></mdb-icon>
+                    </a>
                 </div>
                 <!--<div class="col-md-6">
           <a href="#" data-target="#bd-example-modal" id="login1" data-toggle="modal" class="text-white ml-3 mr-3"><i class="mdi mdi-lock"></i> Sign In</a>
@@ -165,14 +183,14 @@
 
 <header class="page-header font-small  " style="margin-bottom: 100px;">
     <div class="toolbar">
-        <div class="container">
+        <div class="mx-5">
             <div class="row align-items-center">
-                <div class="col-lg-1" (click)='routeToHome()'>
+                <div class="logo_bg" style="height: 100px" (click)='routeToHome()'>
                     <a (click)='routeToHome()'>
-                        <img src="assets/logo.png" height="40" style="margin-left: -30px;  height: 65px; width: 180px; cursor: pointer;">
+                        <img src="assets/logo.png" height="50" style="margin-top: 50px; height: 40px; width: 120px; cursor: pointer;">
                     </a>
                 </div>
-                <div class="col-lg-2" style="cursor: pointer;" (click)='routeToHome()'>
+                <div class="col-lg-2 search__div" style="cursor: pointer;" (click)='routeToHome()'>
                     <ng-template #popContent let-greeting="greeting">
                         <div *ngFor="let item of dummy">
                             <ngx-skeleton-loader animation="progress" [theme]="{ 'border-radius': '5px', height: '20px',width:'200px', border: '1px solid white' }">
@@ -195,7 +213,7 @@
                     <mdb-icon (click)="search(terms)" fas icon="search" style="padding: 10px;background: #f3f3f3;cursor: pointer;"></mdb-icon>
                 </div>
 
-                <div class="col-lg-2">
+                <div class="col-lg-1">
                     <ng-template #popContent2 let-greeting="greeting">
                         <br>
                         <a mdbWavesEffect class="linkBtn" *ngIf="getAccount() === false" (click)="login()">
@@ -242,10 +260,10 @@
                         </div>
                     </ng-template>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 ml-4">
                     <li class="list-inline-item cart-btn" id="cartlist">
                         <a (click)="util.publishCartBtn()" data-toggle="offcanvas">
-                            <a class="mdi mdi-cart "><img style="height: 20px;margin-left: 5px;" src="assets/imgs/shopping-cart.png" /></a><a class="dummy1" style="color: white;">My Cart</a><small class="cart-value"> <a style="margin-left: 5px;">{{cart.cart.length}}</a></small></a>
+                            <a class="mdi mdi-cart "><img style="height: 20px; margin-left: 5px;" src="assets/imgs/shopping-cart.png" /></a><a class="dummy1">My Cart</a><small class="cart-value"> <a style="margin-left: 5px;">{{cart.cart.length}}</a></small></a>
                     </li>
                 </div>
 
